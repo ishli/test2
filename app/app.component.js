@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,27 +11,28 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var WelcomeComponent;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            WelcomeComponent = (function () {
-                function WelcomeComponent() {
-                    this.pageTitle = "Welcome";
+            AppComponent = (function () {
+                function AppComponent() {
+                    this.pageTitle = 'Acme Product Management';
                 }
-                WelcomeComponent = __decorate([
+                AppComponent = __decorate([
                     core_1.Component({
-                        templateUrl: 'app/home/welcome.component.html'
+                        selector: 'pm-app',
+                        template: "\n    <div>\n        test\n     </div>\n     "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], WelcomeComponent);
-                return WelcomeComponent;
+                ], AppComponent);
+                return AppComponent;
             }());
-            exports_1("WelcomeComponent", WelcomeComponent);
+            exports_1("AppComponent", AppComponent);
         }
     }
 });
-//# sourceMappingURL=welcome.component.js.map
+//# sourceMappingURL=app.component.js.map
