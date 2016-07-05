@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Language } from './language';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LanguageService{
@@ -18,7 +19,10 @@ export class LanguageService{
             method: RequestMethod.Post,
             withCredentials: true
         }) 
-        return this._http.get(this._languagleUrl, options).do(data => console.log(JSON.stringify(data))).catch(this.handleError);
+        return this._http.get(this._languagleUrl, options)
+        .map((response : Response) => <Language[]>response.json())
+        //.do(data => console.log(JSON.stringify(data)))
+        .catch(this.handleError);
 
     }
 

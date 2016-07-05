@@ -1,14 +1,14 @@
-import { Component }  from '@angular/core';
+import { Component, Input }  from '@angular/core';
 import { Language } from './language';
-@Component({
-    selector: 'lang-list',
-    templateUrl: 'app/Languages/Languages.component.html',
+import { LanguageItem } from './language-item.component';
 
+@Component({
+    selector: 'lang-comp',
+    templateUrl: 'app/Languages/Languages.component.html',
+directives: [LanguageItem]
 })
 
 export class LanguagesComponent{
-    languages = [
-        new Language(1,'11'),
-        new Language(2, '22')
-    ];
+    @Input() languages : Language[];
+    
 }

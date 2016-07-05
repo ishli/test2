@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/operator/do', 'rxjs/add/operator/catch'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/operator/do', 'rxjs/add/operator/catch', 'rxjs/add/operator/map'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -24,7 +24,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                 Observable_1 = Observable_1_1;
             },
             function (_1) {},
-            function (_2) {}],
+            function (_2) {},
+            function (_3) {}],
         execute: function() {
             LanguageService = (function () {
                 function LanguageService(_http) {
@@ -36,7 +37,9 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                         method: http_1.RequestMethod.Post,
                         withCredentials: true
                     });
-                    return this._http.get(this._languagleUrl, options).do(function (data) { return console.log(JSON.stringify(data)); }).catch(this.handleError);
+                    return this._http.get(this._languagleUrl, options)
+                        .map(function (response) { return response.json(); })
+                        .catch(this.handleError);
                 };
                 LanguageService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure

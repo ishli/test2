@@ -1,5 +1,7 @@
-<ul>
-  <li *ngFor="let lang of languages" ">
-    {{ lang.name }}
-  </li>
+<div>
+    <ul>
+       
+     <lang-item *ngFor=" let lang of languages" [lang]="lang"></lang-item>
+  
 </ul>
+</div>

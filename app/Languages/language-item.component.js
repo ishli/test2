@@ -1,4 +1,4 @@
-System.register(['@angular/core', './language-item.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './language'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,36 +10,35 @@ System.register(['@angular/core', './language-item.component'], function(exports
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, language_item_component_1;
-    var LanguagesComponent;
+    var core_1, language_1;
+    var LanguageItem;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (language_item_component_1_1) {
-                language_item_component_1 = language_item_component_1_1;
+            function (language_1_1) {
+                language_1 = language_1_1;
             }],
         execute: function() {
-            LanguagesComponent = (function () {
-                function LanguagesComponent() {
+            LanguageItem = (function () {
+                function LanguageItem() {
                 }
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', Array)
-                ], LanguagesComponent.prototype, "languages", void 0);
-                LanguagesComponent = __decorate([
+                    __metadata('design:type', language_1.Language)
+                ], LanguageItem.prototype, "lang", void 0);
+                LanguageItem = __decorate([
                     core_1.Component({
-                        selector: 'lang-comp',
-                        templateUrl: 'app/Languages/Languages.component.html',
-                        directives: [language_item_component_1.LanguageItem]
+                        selector: 'lang-item',
+                        templateUrl: 'app/Languages/language-item.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], LanguagesComponent);
-                return LanguagesComponent;
+                ], LanguageItem);
+                return LanguageItem;
             }());
-            exports_1("LanguagesComponent", LanguagesComponent);
+            exports_1("LanguageItem", LanguageItem);
         }
     }
 });
-//# sourceMappingURL=Languages.component.js.map
+//# sourceMappingURL=language-item.component.js.map

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', './Languages/Language.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', './Languages/Language.service', './Languages/Languages.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, Language_service_1;
+    var core_1, http_1, Language_service_1, Languages_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
             },
             function (Language_service_1_1) {
                 Language_service_1 = Language_service_1_1;
+            },
+            function (Languages_component_1_1) {
+                Languages_component_1 = Languages_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -36,8 +39,9 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
                     core_1.Component({
                         selector: 'pm-app',
                         templateUrl: './app/app.component.html',
+                        directives: [Languages_component_1.LanguagesComponent],
                         providers: [Language_service_1.LanguageService,
-                            http_1.HTTP_PROVIDERS]
+                            http_1.HTTP_PROVIDERS],
                     }), 
                     __metadata('design:paramtypes', [Language_service_1.LanguageService])
                 ], AppComponent);
