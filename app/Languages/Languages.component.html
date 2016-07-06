@@ -1,7 +1,26 @@
 <div>
-    <ul>
-       
-     <lang-item *ngFor=" let lang of languages" [lang]="lang"></lang-item>
-  
-</ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>EnglishName</th>
+                <th>Culture</th>
+                <th>EntryState</th>
+                <th>FlowDirection</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let lang of languages" (click)="onSelectRow(lanId,langId)" #lanId>
+                <!--<lang-item [lang]="lang"></lang-item>-->
+                <td #langId>{{lang.Id}}</td>
+                <td>{{lang.Name }}</td>
+                <td>{{lang.EnglishName}}</td>
+                <td>{{lang.Culture}}</td>
+                <td>{{lang.EntryState}}</td>
+                <td>{{lang.FlowDirection}}</td>
+            </tr>
+
+        </tbody>
+    </table>
 </div>

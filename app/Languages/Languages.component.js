@@ -23,11 +23,20 @@ System.register(['@angular/core', './language-item.component'], function(exports
         execute: function() {
             LanguagesComponent = (function () {
                 function LanguagesComponent() {
+                    this.selected = new core_1.EventEmitter();
                 }
+                LanguagesComponent.prototype.onSelectRow = function (input, input2) {
+                    var temp = +input2.innerText;
+                    this.selected.emit(temp);
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array)
                 ], LanguagesComponent.prototype, "languages", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], LanguagesComponent.prototype, "selected", void 0);
                 LanguagesComponent = __decorate([
                     core_1.Component({
                         selector: 'lang-comp',

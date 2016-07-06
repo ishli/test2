@@ -1,1 +1,10 @@
-<lang-comp [languages]="languages"></lang-comp>
+<div style="clear: left; float: left; width: 100%; overflow: hidden; ">
+    <div style="float: left; width: 100%; position: relative; right: 50%; ">
+        <div style="float: left; width: 50%; position: relative; overflow: hidden; left: 50%">
+            <lang-comp [languages]="languages" (selected)="onItemSelected($event)"></lang-comp>
+        </div>
+        <div style="float: right; width: 48%; position: relative; overflow: hidden; left: 50%">
+            <lang-transl [languageTranslations] = "languageTranslations" ></lang-transl>
+        </div>
+    </div>
+</div>

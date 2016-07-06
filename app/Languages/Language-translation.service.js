@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Observable_1;
-    var LanguageService;
+    var LanguageTranslationService;
     return {
         setters:[
             function (core_1_1) {
@@ -27,13 +27,12 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
             function (_2) {},
             function (_3) {}],
         execute: function() {
-            LanguageService = (function () {
-                function LanguageService(_http) {
+            LanguageTranslationService = (function () {
+                function LanguageTranslationService(_http) {
                     this._http = _http;
                     this._languagleUrl = 'http://localhost:58585/RS/LanguagesData';
-                    this._languagleTranslationUrl = 'http://localhost:58585/RS/GetLanguageTranslations';
                 }
-                LanguageService.prototype.getLanguages = function () {
+                LanguageTranslationService.prototype.getLanguages = function () {
                     var options = new http_1.RequestOptions({
                         method: http_1.RequestMethod.Post,
                         withCredentials: true
@@ -42,14 +41,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                         .map(function (response) { return response.json(); })
                         .catch(this.handleError);
                 };
-                LanguageService.prototype.handleError = function (error) {
+                LanguageTranslationService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console
                     console.error(error);
                     return Observable_1.Observable.throw(error.json().error || 'Server error');
                 };
-                LanguageService.prototype.getLanguageTranslations = function (id) {
-                    console.log("service " + id);
+                LanguageTranslationService.prototype.getLanguageTranslations = function (id) {
                     var searchParams = new http_1.URLSearchParams();
                     searchParams.set('id', id.toString());
                     var options = new http_1.RequestOptions({
@@ -57,18 +55,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                         withCredentials: true,
                         search: searchParams
                     });
-                    return this._http.get(this._languagleTranslationUrl, options)
+                    return this._http.get(this._languagleUrl, options)
                         .map(function (response) { return response.json(); })
                         .catch(this.handleError);
                 };
-                LanguageService = __decorate([
+                LanguageTranslationService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], LanguageService);
-                return LanguageService;
+                ], LanguageTranslationService);
+                return LanguageTranslationService;
             }());
-            exports_1("LanguageService", LanguageService);
+            exports_1("LanguageTranslationService", LanguageTranslationService);
         }
     }
 });
-//# sourceMappingURL=Language.service.js.map
+//# sourceMappingURL=Language-translation.service.js.map

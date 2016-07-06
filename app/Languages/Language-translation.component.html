@@ -1,0 +1,19 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Culture</th>
+                <th>Translation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let lang of languageTranslations" >
+                <!--<lang-item [lang]="lang"></lang-item>-->
+                <td #langId>{{lang.Id}}</td>
+                <td>{{lang.Culture }}</td>
+                <td>{{lang.Translation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

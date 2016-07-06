@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', './Languages/Language.service', './Languages/Languages.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', './Languages/Language.service', './Languages/Languages.component', './Languages/Language-translation.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, Language_service_1, Languages_component_1;
+    var core_1, http_1, Language_service_1, Languages_component_1, Language_translation_component_1;
     var AppComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
             },
             function (Languages_component_1_1) {
                 Languages_component_1 = Languages_component_1_1;
+            },
+            function (Language_translation_component_1_1) {
+                Language_translation_component_1 = Language_translation_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -35,11 +38,17 @@ System.register(['@angular/core', '@angular/http', './Languages/Language.service
                     var _this = this;
                     this._languageService.getLanguages().subscribe(function (languages) { return _this.languages = languages; }, function (error) { return _this.errorMessage = error; });
                 };
+                AppComponent.prototype.onItemSelected = function (id) {
+                    var _this = this;
+                    console.log(id);
+                    this._languageService.getLanguageTranslations(id).subscribe(function (langTrans) { return _this.languageTranslations = langTrans; }, function (error) { return _this.errorMessage = error; });
+                    this.langId = id;
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-app',
                         templateUrl: './app/app.component.html',
-                        directives: [Languages_component_1.LanguagesComponent],
+                        directives: [Languages_component_1.LanguagesComponent, Language_translation_component_1.LanguagesTranslationComponent],
                         providers: [Language_service_1.LanguageService,
                             http_1.HTTP_PROVIDERS],
                     }), 
