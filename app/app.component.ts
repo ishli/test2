@@ -11,7 +11,7 @@ import { LanguagesTranslationComponent } from './Languages/Language-translation.
     templateUrl: './app/app.component.html',
     directives: [LanguagesComponent,LanguagesTranslationComponent],
       providers: [LanguageService,
-                HTTP_PROVIDERS],
+                HTTP_PROVIDERS]
                 
 })
 

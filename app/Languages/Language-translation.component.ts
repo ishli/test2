@@ -8,11 +8,5 @@ import { LanguageTranslation } from './Language-translation';
 })
 export class LanguagesTranslationComponent{
     @Input() languageTranslations : LanguageTranslation[];
-    // @Output() selected = new EventEmitter();
-
-    // onSelectRow(input: any, input2: any)
-    // {
-    //     let temp = +input2.innerText;
-    //     this.selected.emit(temp);
-    // }
+   
 }

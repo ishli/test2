@@ -15,14 +15,14 @@ export class LanguageService{
 
     constructor(private _http: Http){}
 
-    getLanguages(): Observable<LanguageTranslation[]>{
+    getLanguages(): Observable<Language[]>{
 
         let options = new RequestOptions({
             method: RequestMethod.Post,
             withCredentials: true
         }) 
         return this._http.get(this._languagleUrl, options)
-        .map((response : Response) => <LanguageTranslation[]>response.json())
+        .map((response : Response) => <Language[]>response.json())
         //.do(data => console.log(JSON.stringify(data)))
         .catch(this.handleError);
 
@@ -35,7 +35,7 @@ export class LanguageService{
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    getLanguageTranslations(id: number): Observable<Language[]>{
+    getLanguageTranslations(id: number): Observable<LanguageTranslation[]>{
         console.log("service " + id);
 
         let searchParams = new URLSearchParams();
@@ -48,7 +48,7 @@ export class LanguageService{
         });
 
         return this._http.get(this._languagleTranslationUrl, options)
-        .map((response : Response) => <Language[]>response.json())
+        .map((response : Response) => <LanguageTranslation[]>response.json())
         //.do(data => console.log(JSON.stringify(data)))
         .catch(this.handleError);
 
